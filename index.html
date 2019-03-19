@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function PessoaAbstract(dados) {
+			this.dados = dados;
+		}
+
+		PessoaAbstract.prototype.getDados = function(){
+			return this.dados;
+		}
+
+		function Pessoa(dados) {
+			PessoaAbstract.call(this, dados);
+		}
+
+		Pessoa.prototype = new PessoaAbstract();
+		Pessoa.prototype.constructor = Pessoa;
+
+		var pessoa = new Pessoa({nome: 'John'});
+		console.log(pessoa.getDados());
+	</script>
+</head>
+<body>
+
+</body>
+</html>
